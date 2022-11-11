@@ -13,6 +13,11 @@ app.engine('handlebars',exphbs.engine())
 app.set('view engine','handlebars')
 
 
+app.get('/', (req, res) => {
+    res.render('index')
+  
+    })
+    
 app.listen(port,hostname,()=>{
     console.log(`Server çalışıyor, http://${hostname}:${port}/`)
 })
