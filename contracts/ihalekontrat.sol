@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract ihale is Ownable {
 
        
-        struct Ihalebilgi {
+        struct ihaleBilgi {
             // string katagori;
             // string marka;
             // string model;
@@ -20,7 +20,7 @@ contract ihale is Ownable {
             address zirveadresi;
             mapping(address => uint256) teklifVeren;
         }
-            mapping(uint256 => Ihalebilgi) private ihaleler;
+            mapping(uint256 => ihaleBilgi) ihaleler;
             uint256 ihaleId;
             mapping(address => uint256) bakiyeler;
 
@@ -74,7 +74,7 @@ contract ihale is Ownable {
         return  ihaleler[_ihaleId].zirveadresi;
     }
 
-    // function IhaleKontrol(uint256 _ihaleId) public view returns(Ihalebilgi memory) {
+    // function Ihalelerigetir(uint256 _ihaleId) public view returns(ihaleBilgi memory) {
     //     return ihaleler[_ihaleId];
     // }
 
