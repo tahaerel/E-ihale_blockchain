@@ -8,6 +8,6 @@ const PostSchema = new mongoose.Schema({
 
 
 
-const Postlar = mongoose.model('Posts,',PostSchema)
+//const Postlar = mongoose.model('Posts,',PostSchema)
 
 module.exports = mongoose.model('Post',PostSchema)
