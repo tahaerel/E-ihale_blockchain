@@ -33,17 +33,17 @@
                                         <div class="flex"><p>Zaten bir hesabın var mı? </p><a href="/login" class="text-p text-color-3 fw-6">Giriş Yap</a></div>
                                     </div>
                                 <!-- <form action="#" class="form-profile">  -->
-                                    <form action="#" id="contactform" novalidate="novalidate">                                
+                                    <form action="/users/register" method="POST" novalidate="novalidate">                                
                                         <div class="form-login flat-form flex-one">
                                             <div class="info-login"> 
                                                 <fieldset>
                                                     <p class="title-infor-account">Kullanıcı Adı</p>
                                                     <!-- <input type="text" name="name" id="name" placeholder="Enter Your Name" tabinex="1" value aria-required="true"  required> -->
-                                                    <input type="text" id="name" class="tb-my-input" name="name" placeholder="İsiminizi Giriniz" value="" aria-required="true" required="">
+                                                    <input type="text" name="username" class="tb-my-input" name="name" placeholder="İsiminizi Giriniz" value="" aria-required="true" required="">
                                                 </fieldset>  
                                                 <fieldset>
                                                     <p class="title-infor-account">Mail</p>
-                                                    <input type="email" id="email" class="tb-my-input" name="email" placeholder="info@gmail.com" value="" aria-required="true"  required="">
+                                                    <input type="email" name="email" class="tb-my-input" name="email" placeholder="info@gmail.com" value="" aria-required="true"  required="">
                                               </fieldset>                                                                                     
                                                 <fieldset class="style-pass">
                                                     <p class="title-infor-account">Parola</p>
