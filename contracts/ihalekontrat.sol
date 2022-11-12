@@ -2,6 +2,7 @@
 pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "hardhat/console.sol";
 
 contract ihale is Ownable {
 
@@ -59,3 +60,8 @@ contract ihale is Ownable {
         ihaleler[_ihaleId].zirve =  _teklif;
         ihaleler[_ihaleId].zirveadresi = msg.sender;
     }
+
+    function BitisTarihi(uint256 _ihaleId) public view returns(uint256) {
+        return ihaleler[_ihaleId].ihaleBitisTarihi;
+    }
+}
