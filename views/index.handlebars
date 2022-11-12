@@ -1,0 +1,199 @@
+         
+            <!--  page -->
+            <section class="flat-title-page inner"> 
+                <img class="absolute mark-page" src="assets/images/mark/mark-header-04.png" alt=""> 
+                    <img class="absolute mark-page2 animate-rotate" src="assets/images/mark/mark-header-01.png" alt="">
+                    <img class="absolute mark-page3" src="assets/images/mark/mark-header-02.png" alt="">
+                    <img class="absolute mark-page4" src="assets/images/mark/mark-header-03.png" alt="">
+                    <img class="absolute mark-page5" src="assets/images/mark/mark-header-05.png" alt="">      
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-title-heading">
+                                <h1 class="heading">Açık İhaleler<span class="text-color-3">.</span></h1>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>                    
+            </section>
+
+            <div class="tf-section light-style flat-auctions live-auctions">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="wrap-box explore-1 flex-one mb-30">
+                                <div class="seclect-box style-1 flex text-t font">
+                                    <div id="item_category" class="dropdown">
+                                        <a href="#" class="btn-selector nolink ">Kategoriler</a>
+                                        <ul >
+                                            <li><span>Araçlar</span></li>
+                                            <li class="active"><span>Araçlar</span></li>
+                                            <li><span>Araçlar</span></li>
+                                            <li><span>Araçlar</span></li>
+                                            <li><span>Araçlar</span></li>
+                                            <li><span>Araçlar</span></li>
+                                            <li><span>Araçlar</span></li>
+                                        </ul>
+                                    </div>
+                                    <div id="view" class="dropdown">
+                                        <a href="#" class="btn-selector nolink">Sırala</a>
+                                        <ul >
+                                            <li><span>Açık Arttırmada</span></li>
+                                            <li><span>Teklif Verilmiş</span></li>
+                                        </ul>
+                                    </div>
+                                    <div id="new-items" class="dropdown">
+                                        <a href="#" class="btn-selector nolink">Yeni Ürünler</a>
+                                        <ul >
+                                            <li><span>Tekli Ürünler</span></li>
+                                            <li><span>Çoklu Ürünler</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="seclect-box style-2 box-right flex">
+                                    <div class="title-item btn-selector nolink fw-6 font fs-16"><span class="text-color-3">95</span> Açık İhale Bulundu</div>
+                                    <div class="widget search">
+                                        <form action="#" method="get" role="search" class="search-form">
+                                            <input type="search" class="search-field"
+                                                placeholder="Ürün Adı..." value="" name="s"
+                                                title="Search for" required="">
+                                            <button class="search-icon search-submit" type="submit" title="Search"></button>
+                                        </form>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="swiper-container carousel-6 show-shadow">
+                                <div class="swiper-wrapper slider-style ">     
+                                         <!-- BİR BAŞKA POST -->        
+                                         {{#each posts}}                  
+                                         <div class="swiper-slide">									
+                                        <div class="sc-card-product sc-card-article blog-article">
+                                            <div class="card-media flat-img">
+                                                <a href="/ihaleler/{{_id}}"><img src="assets/images/box-item/auctions-3.jpg" alt="Image"></a>                                                                                                                                                                                                     
+                                            </div>  
+                                            <div class="content">
+                                                <h6 class="tags">1 Adet</h6>  
+                                                <h3><a href="/ihaleler/{{_id}}">{{title}}</a></h3> 
+                                                <div class="meta-info mb-17">
+                                                    <div class="author">
+                                                        <div class="avatar">
+                                                            <img src="assets/images/avatar/avt-01.png" alt="">
+                                                            <img class="check" src="assets/images/icon/author-check.svg" alt="">
+                                                        </div>
+                                                        <div class="info">
+                                                            <h5> <a class="text-color-3" href="author-profile.html"> {{content}}</a> </h5>
+                                                            <div class="date">   <span> @ Araçlar</span></div>                                           
+                                                        </div>
+                                                    </div>                                  
+                                                </div>  
+                                                <div class="meta-price flex-one">                                              
+                                                    <div class="price flex">
+                                                
+                                                        <div class="title-price">234.000 ₺</div>
+                                                    </div>
+                                                    <div class="button-place-bid">
+                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button btn-3"><span>Teklif Ver</span></a>
+                                                    </div>
+                                                </div>
+                                                <div class="featured-countdown">
+                                                    <h4 class="flex-one"><span class="title-countdown">Bitiş Zamanı - </span>
+                                                    <span class="js-countdown" data-timer="0187600" data-labels=" :  ,  : , : , "></span></h4>
+                                                </div>
+                                            </div> 
+                                        </div>    	
+                                    </div> 
+                                    {{/each}}
+                                     <!-- BİR BAŞKA POST 
+                                    <div class="swiper-slide">									
+                                        <div class="sc-card-product sc-card-article blog-article">
+                                            <div class="card-media flat-img">
+                                                <a href="/details"><img src="assets/images/box-item/auctions-2.jpg" alt="Image"></a>                                                                                                                                                                                                     
+                                            </div>  
+                                            <div class="content">
+                                                <h6 class="tags">1 Adet</h6>  
+                                                <h3><a href="/details">1991 MERCEDES - BENZ 190 E</a></h3> 
+                                                <div class="meta-info mb-17">
+                                                    <div class="author">
+                                                        <div class="avatar">
+                                                       
+                                                            <img class="check" src="assets/images/icon/author-check.svg" alt="">
+                                                        </div>
+                                                        <div class="info">
+                                                            <h5> <a class="text-color-3" href="author-profile.html"> Ticaret Bakanlığı</a> </h5>
+                                                            <div class="date">   <span> @ Araçlar</span></div>                                           
+                                                        </div>
+                                                    </div>                                  
+                                                </div>  
+                                                <div class="meta-price flex-one">                                              
+                                                    <div class="price flex">
+                                                    
+                                                        <div class="title-price"> 234.000 ₺</div>
+                                                    </div>
+                                                    <div class="button-place-bid">
+                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button btn-3"><span>Teklif Ver</span></a>
+                                                    </div>
+                                                </div>
+                                                <div class="featured-countdown">
+                                                    <h4 class="flex-one"><span class="title-countdown">Bitiş Zamanı - </span>
+                                                    <span class="js-countdown" data-timer="0187600" data-labels=" :  ,  : , : , "></span></h4>
+                                                </div>
+                                            </div> 
+                                        </div>    	
+                                    </div> 
+                                     <!-- BİR BAŞKA POST 
+                                    <div class="swiper-slide">									
+                                        <div class="sc-card-product sc-card-article blog-article">
+                                            <div class="card-media flat-img">
+                                                <a href="/details"><img src="assets/images/box-item/auctions-3.jpg" alt="Image"></a>                                                                                                                                                                                                     
+                                            </div>  
+                                            <div class="content">
+                                                <h6 class="tags">1 Adet</h6>  
+                                                <h3><a href="/details">1991 MERCEDES - BENZ 190 E</a></h3> 
+                                                <div class="meta-info mb-17">
+                                                    <div class="author">
+                                                        <div class="avatar">
+                                                            <img src="assets/images/avatar/avt-01.png" alt="">
+                                                            <img class="check" src="assets/images/icon/author-check.svg" alt="">
+                                                        </div>
+                                                        <div class="info">
+                                                            <h5> <a class="text-color-3" href="author-profile.html"> Ticaret Bakanlığı</a> </h5>
+                                                            <div class="date">   <span> @ Araçlar</span></div>                                           
+                                                        </div>
+                                                    </div>                                  
+                                                </div>  
+                                                <div class="meta-price flex-one">                                              
+                                                    <div class="price flex">
+                                                 <!--        <img class="" src="assets/images/icon/icon-diamond.svg" alt=""> 
+                                                        <div class="title-price">234.000 ₺</div>
+                                                    </div>
+                                                    <div class="button-place-bid">
+                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button btn-3"><span>Teklif Ver</span></a>
+                                                    </div>
+                                                </div>
+                                                <div class="featured-countdown">
+                                                    <h4 class="flex-one"><span class="title-countdown">Bitiş Zamanı - </span>
+                                                    <span class="js-countdown" data-timer="0187600" data-labels=" :  ,  : , : , "></span></h4>
+                                                </div>
+                                            </div> 
+                                        </div>    	
+                                    </div> 
+                                    <!-- BİR BAŞKA POST -->
+                    
+                                </div>
+                                <div class="swiper-button-next btn-slide-next active"></div>
+                                <div class="swiper-button-prev btn-slide-prev"></div>
+                                <div class="themesflat-pagination clearfix mt-2">
+                                    <ul>
+                                        <li><a href="#" class="page-numbers current">01</a></li>
+                                        <li><a href="#" class="page-numbers ">02</a></li>
+                                        <li><a href="#" class="page-numbers">03</a></li>
+                                        <li><a href="#" class="page-numbers">04</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
