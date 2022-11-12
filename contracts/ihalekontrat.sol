@@ -66,7 +66,7 @@ contract ihale is Ownable {
     }
 
     function Kazanan(uint256 _ihaleId) external view returns(address){
-        require(block.timestamp <= ihaleler[_ihaleId].ihaleBitisTarihi,"Ihale Bitmedigi Icin Kazanan Yok");
+        require(block.timestamp >= ihaleler[_ihaleId].ihaleBitisTarihi,"Ihale Bitmedigi Icin Kazanan Yok");
         return  ihaleler[_ihaleId].zirveadresi;
     }
 
