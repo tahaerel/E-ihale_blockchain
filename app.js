@@ -11,3 +11,8 @@ mongoose.connect('mongodb://127.0.0.1/ihale');
 app.use(express.static('public'))
 app.engine('handlebars',exphbs.engine())
 app.set('view engine','handlebars')
+
+
+app.listen(port,hostname,()=>{
+    console.log(`Server çalışıyor, http://${hostname}:${port}/`)
+})
