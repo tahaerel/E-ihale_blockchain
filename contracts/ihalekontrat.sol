@@ -44,16 +44,16 @@ contract ihale is Ownable {
         // ihaleler[ihaleId].yakit = _yakit;
         // ihaleler[ihaleId].yil = _yil;
         // ihaleler[ihaleId].km = _km;
-        ihaleler[ihaleId].BaslangicBedeli = _BaslangicBedeli;
-        ihaleler[ihaleId].ihaleBitisTarihi = (block.timestamp) + (_ihaleBitisTarihi *1 hours);
+        ihaleler[_ihaleId].BaslangicBedeli = _BaslangicBedeli;
+        ihaleler[_ihaleId].ihaleBitisTarihi = (block.timestamp) + (_ihaleBitisTarihi *1 seconds);
     }
 
     function ZirveKontrol(uint256 _deger,uint256 _ihaleId) private view returns(bool){
         return _deger>ihaleler[_ihaleId].zirve;   
     }
 
-    function TeklifVer(uint256 _teklif,uint256 _ihaleId) external {
-        require(block.timestamp <= ihaleler[_ihaleId].ihaleBitisTarihi,"Ihale Bitti"); 
+    function TeklifVer(uint256 _teklif,uint256 _ihaleId) external BittimiKontrol(_ihaleId) {
+        // require(block.timestamp <= ihaleler[_ihaleId].ihaleBitisTarihi,"Ihale Bitti"); 
         require(ihaleler[_ihaleId].BaslangicBedeli < _teklif, "Baslangic Bedelinden Dusuk Deger Girdiniz");
         require(ZirveKontrol(_teklif,_ihaleId),"En Yuksek Teklifin Altinda Bir Teklif Verdin");
         ihaleler[_ihaleId].teklifVeren[msg.sender] = _teklif;
@@ -61,13 +61,22 @@ contract ihale is Ownable {
         ihaleler[_ihaleId].zirveadresi = msg.sender;
     }
 
-    function BitisTarihi(uint256 _ihaleId) external  view returns(uint256) {
+    function IhaleBitisTarihi(uint256 _ihaleId) external  view BittimiKontrol(_ihaleId) returns(uint256) {
         return ihaleler[_ihaleId].ihaleBitisTarihi;
     }
 
-    function Kazanan(uint256 _ihaleId) external view returns(address){
+    function IhaleKazanani(uint256 _ihaleId) external view returns(address){
         require(block.timestamp >= ihaleler[_ihaleId].ihaleBitisTarihi,"Ihale Bitmedigi Icin Kazanan Yok");
         return  ihaleler[_ihaleId].zirveadresi;
+    }
+
+    // function IhaleKontrol(uint256 _ihaleId) public view returns(Ihalebilgi memory) {
+
+    // }
+
+    modifier BittimiKontrol(uint256 _ihaleId) {
+        require(block.timestamp <= ihaleler[_ihaleId].ihaleBitisTarihi,"Ihale Bitti"); 
+        _;
     }
 
     
