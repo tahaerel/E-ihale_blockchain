@@ -13,7 +13,7 @@ moment.locale('tr')
 const Post = require('./models/Post')
 //mongoose.connect('mongodb+srv://mongotuna:Mongotuna.12@cluster0.9mpmtwt.mongodb.net/?retryWrites=true&w=majority')
 //app.set('view engine','ejs')
-mongoose.connect('mongodb://127.0.0.1/ihale');
+mongoose.connect('mongodb://127.0.0.1/ihale')
 
 app.use(fileUpload())
 
@@ -40,8 +40,11 @@ app.use(bodyParser.json())
 
 const main = require('./routes/main')
 const posts = require('./routes/posts')
+const users = require('./routes/users')
 app.use('/',main)
 app.use('/ihaleler',posts)
+app.use('/users',users)
+
 
 
 /*
