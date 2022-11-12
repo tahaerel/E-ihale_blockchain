@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "hardhat/console.sol";
 
 contract ihale is Ownable {
 
@@ -21,7 +20,7 @@ contract ihale is Ownable {
             address zirveadresi;
             mapping(address => uint256) teklifVeren;
         }
-            mapping(uint256 => Ihalebilgi) ihaleler;
+            mapping(uint256 => Ihalebilgi) private ihaleler;
             uint256 ihaleId;
             mapping(address => uint256) bakiyeler;
 
@@ -61,6 +60,11 @@ contract ihale is Ownable {
         ihaleler[_ihaleId].zirveadresi = msg.sender;
     }
 
+    function EnYuksekTeklif(uint256 _ihaleId) external view returns(uint){
+        return ihaleler[_ihaleId].teklifVeren[msg.sender];
+
+    }
+
     function IhaleBitisTarihi(uint256 _ihaleId) external  view BittimiKontrol(_ihaleId) returns(uint256) {
         return ihaleler[_ihaleId].ihaleBitisTarihi;
     }
@@ -71,7 +75,7 @@ contract ihale is Ownable {
     }
 
     // function IhaleKontrol(uint256 _ihaleId) public view returns(Ihalebilgi memory) {
-
+    //     return ihaleler[_ihaleId];
     // }
 
     modifier BittimiKontrol(uint256 _ihaleId) {
