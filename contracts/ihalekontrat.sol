@@ -18,20 +18,34 @@ contract ihale is Ownable {
             uint256 ihaleBitisTarihi;
             uint256 zirve;
             address zirveadresi;
-            //mapping(address => uint256) teklifVeren;
         }
 
-        struct Teklif{
-            address teklifVerenAdresi;
-            uint256 teklifdegeri;
+        struct Bakiye {
+            address kullaniciAdresi;
+            uint256 kullaniciBakiyesi;
         }
+
+        // struct teklifBilgi{
+        //     address teklifVerenAdresi;
+        //     uint256 teklifdegeri;
+        // }
         
-            //mapping(address => uint256) teklifVeren;
-            mapping(uint256 => ihaleBilgi) ihaleler;
-            uint256 ihaleId;
-            mapping(uint256 => Teklif) teklifler;
-            //mapping(Teklif => ihaleBilgi) ihaleteklifleri;
+        //mapping(address => uint256) teklifVeren;
+        mapping(uint256 => ihaleBilgi) ihaleler;
+        uint256 ihaleId;
+        //mapping(uint256 => teklifBilgi) teklifler;
+        //mapping(Teklif => ihaleBilgi) ihaleteklifleri;
+        //mapping(address => Bakiye ) bakiyeler;
+        // mapping(address => uint256) bakiyeler;
+        uint256 public bakiye;
 
+        event tekliflersiralamasi(uint256 indexed ihaleId ,address teklifVeren,uint teklif);
+        event ihalelersiralamasi(uint256 indexed ihaleId);
+
+    function ParaYukle(uint _bakiye) public onlyOwner {
+        bakiye = bakiye + _bakiye;
+    }
+        
     function ihaleEkle(
         // string memory _katagori,
         // string memory _marka,
@@ -53,7 +67,7 @@ contract ihale is Ownable {
         // ihaleler[ihaleId].km = _km;
         ihaleler[_ihaleId].BaslangicBedeli = _BaslangicBedeli;
         ihaleler[_ihaleId].ihaleBitisTarihi = (block.timestamp) + (_ihaleBitisTarihi *1 seconds);
-        // teklifler[_ihaleId].teklifdegeri = msg.value;
+        emit ihalelersiralamasi(_ihaleId);
     }
 
     function ZirveKontrol(uint256 _deger,uint256 _ihaleId) private view returns(bool){
@@ -61,17 +75,19 @@ contract ihale is Ownable {
     }
 
     function TeklifVer(uint256 _teklif,uint256 _ihaleId) external BittimiKontrol(_ihaleId) {
-        // require(block.timestamp <= ihaleler[_ihaleId].ihaleBitisTarihi,"Ihale Bitti"); 
+        require(bakiye >= _teklif,"Bakiyeniz Yetersiz");
         require(ihaleler[_ihaleId].BaslangicBedeli < _teklif, "Baslangic Bedelinden Dusuk Deger Girdiniz");
         require(ZirveKontrol(_teklif,_ihaleId),"En Yuksek Teklifin Altinda Bir Teklif Verdin");
-        teklifler[_ihaleId].teklifdegeri = _teklif;
-        //teklifler[_ihaleId].teklifdegeri[msg.sender] = _teklif;
-        ihaleler[_ihaleId].zirve =  _teklif;
+        //teklifler[_ihaleId].teklifdegeri = _teklif;
+        //ihaleler[_ihaleId].teklifVeren[msg.sender] = _teklif;
+        bakiye = bakiye - _teklif;
+        ihaleler[_ihaleId].zirve = _teklif;
         ihaleler[_ihaleId].zirveadresi = msg.sender;
+        emit tekliflersiralamasi(_ihaleId, msg.sender, _teklif);
     }
 
     function EnYuksekTeklif(uint256 _ihaleId) external view returns(uint){
-        return teklifler[_ihaleId].teklifdegeri;
+        return ihaleler[_ihaleId].zirve;
     }
 
     function IhaleBitisTarihi(uint256 _ihaleId) external  view BittimiKontrol(_ihaleId) returns(uint256) {
@@ -83,9 +99,9 @@ contract ihale is Ownable {
         return  ihaleler[_ihaleId].zirveadresi;
     }
 
-    // function Ihalelerigetir(uint256 _ihaleId) public view returns(ihaleBilgi memory) {
-    //     return ihaleler[_ihaleId];
-    // }
+    function Ihalelerigetir(uint256 _ihaleId) public view returns(ihaleBilgi memory) {
+        return ihaleler[_ihaleId];
+    }
 
     modifier BittimiKontrol(uint256 _ihaleId) {
         require(block.timestamp <= ihaleler[_ihaleId].ihaleBitisTarihi,"Ihale Bitti"); 
