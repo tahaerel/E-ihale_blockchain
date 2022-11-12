@@ -1,4 +1,15 @@
-
+/**
+  * Dark Light Mode
+  * Header Connect
+  * Loadmore Item
+  * headerFixed
+  * retinaLogo
+  * ajaxContactForm
+  * mobileNav
+  * ajaxSubscribe
+  * alertBox
+  * loadmore
+*/
 
 ; (function ($) {
     "use strict";
