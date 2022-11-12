@@ -15,7 +15,7 @@ contract ihale is Ownable {
             // string yakit;
             // uint256 yil;
             // uint256 km;
-            uint256  BaslangicBedeli;
+            uint256 BaslangicBedeli;
             uint256 ihaleBitisTarihi;
             uint256 zirve;
             address zirveadresi;
@@ -35,7 +35,7 @@ contract ihale is Ownable {
         // uint256 _km,
         uint256  _BaslangicBedeli,
         uint256  _ihaleBitisTarihi,
-        uint256 _ihaleId) public onlyOwner {
+        uint256 _ihaleId) external onlyOwner {
         ihaleId =_ihaleId;
         // ihaleler[ihaleId].katagori = _katagori;
         // ihaleler[ihaleId].marka = _marka;
@@ -61,7 +61,14 @@ contract ihale is Ownable {
         ihaleler[_ihaleId].zirveadresi = msg.sender;
     }
 
-    function BitisTarihi(uint256 _ihaleId) public view returns(uint256) {
+    function BitisTarihi(uint256 _ihaleId) external  view returns(uint256) {
         return ihaleler[_ihaleId].ihaleBitisTarihi;
     }
+
+    function Kazanan(uint256 _ihaleId) external view returns(address){
+        require(block.timestamp <= ihaleler[_ihaleId].ihaleBitisTarihi,"Ihale Bitmedigi Icin Kazanan Yok");
+        return  ihaleler[_ihaleId].zirveadresi;
+    }
+
+    
 }
