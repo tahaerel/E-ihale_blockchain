@@ -6,6 +6,9 @@ const hostname = '127.0.0.1'
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
+const moment = require('moment')
+moment.locale('tr')
+
 //const { Router } = require('express')
 const Post = require('./models/Post')
 //mongoose.connect('mongodb+srv://mongotuna:Mongotuna.12@cluster0.9mpmtwt.mongodb.net/?retryWrites=true&w=majority')
@@ -15,7 +18,17 @@ mongoose.connect('mongodb://127.0.0.1/ihale');
 app.use(fileUpload())
 
 app.use(express.static('public'))
-app.engine('handlebars',exphbs.engine())
+
+const hbs = exphbs.create({
+helpers:{
+    generateDate :(date, format) => {
+        return moment(date).format(format)
+    }
+}
+
+})
+
+app.engine('handlebars',hbs.engine)
 app.set('view engine','handlebars')
 
 
