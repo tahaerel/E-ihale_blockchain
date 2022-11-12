@@ -105,8 +105,8 @@
   .sc-button.btn-4:hover,
   .sc-button.btn-3:hover,
   .sc-button.btn-5 {
-    background-color: #8E2AC3;
-    border: 1px solid #8E2AC3;
+    background-color: #FF5454;
+    border: 1px solid #ef4949;
   }
   
   .sc-button.btn-2 {
@@ -206,7 +206,7 @@
   .flat-title-page.inner {
     padding: 310px 0 222px;
     position: relative;
-    background: linear-gradient(79.57deg, rgba(19, 5, 24, 0.07) 10.75%, rgba(119, 89, 243, 0.07) 53.13%, rgba(19, 5, 24, 0.07) 106.55%);
+    background: linear-gradient(79.57deg, rgba(254, 227, 227, 1) 100%, rgba(254, 25, 28, 1) 0%, rgba(202, 19, 19, 1) 0%);
   }
   
   .is_dark .flat-title-page.slider, .is_dark .flat-title-page.inner {
@@ -683,10 +683,10 @@
     text-transform: capitalize;
     line-height: 87px;
     margin-bottom: 7px;
-    color: #7759F3;
+    color: #FF5454;
   }
   .slider .wrap-heading .content h1 .s1 {
-    background: linear-gradient(91.5deg, #7759F3 41.52%, #8E2AC3 96.58%);
+    background: linear-gradient(91.5deg, #FF5454 41.52%, #FF5454 96.58%);
     color: var(--primary-color);
     -webkit-background-clip: text;
     -webkit-text-stroke: 3px transparent;
