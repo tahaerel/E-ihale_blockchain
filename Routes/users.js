@@ -30,6 +30,7 @@ router.post('/login', (req, res) => {
     User.findOne({email},(error,user)=> {
         if(user){ 
              if(user.password==password){ 
+             req.session.userId = user._id
              res.redirect('/')
                 
             }else{

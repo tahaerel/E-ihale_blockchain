@@ -8,12 +8,14 @@ const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
 const moment = require('moment')
 moment.locale('tr')
-
+const expressSession = require('express-session')
+const connectMongo = require('connect-mongo')
 //const { Router } = require('express')
 const Post = require('./models/Post')
 //mongoose.connect('mongodb+srv://mongotuna:Mongotuna.12@cluster0.9mpmtwt.mongodb.net/?retryWrites=true&w=majority')
 //app.set('view engine','ejs')
 mongoose.connect('mongodb://127.0.0.1/ihale')
+
 
 app.use(fileUpload())
 

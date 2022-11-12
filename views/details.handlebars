@@ -19,7 +19,13 @@
             <div class="tf-section flat-auctions-details">
                 <div class="container">
                     <div class="row">
+
                         <div class="col-lg-6 col-md-12">
+
+                            
+                            {{#if sessionFlash.message}}
+                            <div class="{{sessionFlash.type}}">  {{sessionFlash.message}} </div>
+                            {{/if}}
                             <div class="wrap-img">
                                 <div class="img-detail">
                                     <div class="media">

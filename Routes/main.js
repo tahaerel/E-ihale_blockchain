@@ -10,6 +10,7 @@ app.get('/', (req, res) => {
     })
 */    
     router.get('/', (req, res) => {
+        console.log(req.session)
         Post.find({}).then(posts => {
             res.render('index',{posts:posts.map(item =>item.toJSON())})
         })

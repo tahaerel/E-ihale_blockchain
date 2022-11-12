@@ -4,7 +4,11 @@ const Post = require('../models/Post')
 const path = require('path')
 
 
-    router.get('/yeni', (req, res) => { res.render('create-item')})     
+    router.get('/yeni', (req, res) => { 
+        
+            res.render('create-item')
+        })
+          
 
 
 
@@ -24,7 +28,9 @@ const path = require('path')
             {
             ...req.body,
             post_image:`/assets/images/postimages/${post_image.name}`
-            })
+            },)
+
+            
 
          console.log(req.files.post_image.name)
          res.redirect('/')
