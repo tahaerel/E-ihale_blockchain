@@ -18,11 +18,19 @@ contract ihale is Ownable {
             uint256 ihaleBitisTarihi;
             uint256 zirve;
             address zirveadresi;
-            mapping(address => uint256) teklifVeren;
+            //mapping(address => uint256) teklifVeren;
         }
+
+        struct Teklif{
+            address teklifVerenAdresi;
+            uint256 teklifdegeri;
+        }
+        
+            //mapping(address => uint256) teklifVeren;
             mapping(uint256 => ihaleBilgi) ihaleler;
             uint256 ihaleId;
-            mapping(address => uint256) bakiyeler;
+            mapping(uint256 => Teklif) teklifler;
+            //mapping(Teklif => ihaleBilgi) ihaleteklifleri;
 
     function ihaleEkle(
         // string memory _katagori,
@@ -45,6 +53,7 @@ contract ihale is Ownable {
         // ihaleler[ihaleId].km = _km;
         ihaleler[_ihaleId].BaslangicBedeli = _BaslangicBedeli;
         ihaleler[_ihaleId].ihaleBitisTarihi = (block.timestamp) + (_ihaleBitisTarihi *1 seconds);
+        // teklifler[_ihaleId].teklifdegeri = msg.value;
     }
 
     function ZirveKontrol(uint256 _deger,uint256 _ihaleId) private view returns(bool){
@@ -55,14 +64,14 @@ contract ihale is Ownable {
         // require(block.timestamp <= ihaleler[_ihaleId].ihaleBitisTarihi,"Ihale Bitti"); 
         require(ihaleler[_ihaleId].BaslangicBedeli < _teklif, "Baslangic Bedelinden Dusuk Deger Girdiniz");
         require(ZirveKontrol(_teklif,_ihaleId),"En Yuksek Teklifin Altinda Bir Teklif Verdin");
-        ihaleler[_ihaleId].teklifVeren[msg.sender] = _teklif;
+        teklifler[_ihaleId].teklifdegeri = _teklif;
+        //teklifler[_ihaleId].teklifdegeri[msg.sender] = _teklif;
         ihaleler[_ihaleId].zirve =  _teklif;
         ihaleler[_ihaleId].zirveadresi = msg.sender;
     }
 
     function EnYuksekTeklif(uint256 _ihaleId) external view returns(uint){
-        return ihaleler[_ihaleId].teklifVeren[msg.sender];
-
+        return teklifler[_ihaleId].teklifdegeri;
     }
 
     function IhaleBitisTarihi(uint256 _ihaleId) external  view BittimiKontrol(_ihaleId) returns(uint256) {
