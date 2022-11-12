@@ -1,0 +1,19 @@
+{
+  "name": "e_ihale-blockchain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tahaerel/E-ihale_blockchain.git"
+  },
+  "author": "0xPushUP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tahaerel/E-ihale_blockchain/issues"
+  },
+  "homepage": "https://github.com/tahaerel/E-ihale_blockchain#readme"
+}
