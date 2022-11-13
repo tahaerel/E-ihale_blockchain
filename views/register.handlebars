@@ -49,6 +49,11 @@
                                                     <p class="title-infor-account">Parola</p>
                                                     <input type="password" name="password" class="tb-my-input" id="password" placeholder="******" value="" aria-required="true"  required="">
                                                 </fieldset>   
+                                                <fieldset class="style-pass">
+                                                    
+                                                  <span> Hesap: <span class="showAccount"></span>   
+                                             
+                                                </fieldset>  
                                                 <div class="row-form style-1 flex-two">
                                                     <label class="flex align">
                                                         <input type="checkbox">
@@ -57,8 +62,10 @@
                                                     </label>
                                                    
                                                 </div>
+                               
                                                 <button class="submit button-login" >Kayıt Ol</button>                                                                                                          
                                             </div>
+                                            
                                             <div class="box-button">
                                                 <div class="button-social">                            
                                                   <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
@@ -67,14 +74,33 @@
                                                 </div>
                                             </div>                                   
                                         </div>                            
-                                    </form>   
-                                </div>
+                                         </form>    <br><br><br>
+                                    
+                                                <br>  <br> 
+                                                  
+                                </div>             
                             </div>
                         </div>
+
+
+                        
                     </div>               
                 </div>
             </div>
 
            
 
-          
+          <script> 
+            const ethereumButton = document.querySelector('.enableEthereumButton');
+const showAccount = document.querySelector('.showAccount');
+
+ethereumButton.addEventListener('click', () => {
+  getAccount();
+});
+
+async function getAccount() {
+  const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+  const account = accounts[0];
+  showAccount.innerHTML = account;
+}
+          </script>

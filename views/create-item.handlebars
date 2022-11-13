@@ -26,8 +26,8 @@
                                     <a class="images" href="/details"><img class="img-item" src="/assets/images/box-item/auctions-5.jpg" alt="Image"></a>                                                                                                                                                                                                     
                                 </div>  
                                 <div class="content">
-                                    <h6 class="tags">1 stokta</h6>  
-                                    <h3><a href="/details"> Mercedes Benz XXX </a></h3> 
+                                    <h6 class="tags">Stok</h6>  
+                                    <h3><a href="/details"> Başlık </a></h3> 
                                     <div class="meta-info mb-17">
                                         <div class="author">
                                             <div class="avatar">
@@ -36,14 +36,14 @@
                                             </div>
                                             <div class="info">
                                                 <h5> <a class="text-color-3" href="author-profile.html"> Ticaret Bakanlığı</a> </h5>
-                                                <div class="date"> Kategori <span> @ Araçlar</span></div>                                           
+                                                <div class="date"> Kategori <span> @ xxx</span></div>                                           
                                             </div>
                                         </div>                                  
                                     </div>  
                                     <div class="meta-price flex-one">                                              
                                         <div class="price flex">
-                                            <img class="" src="/assets/images/icon/icon-diamond.svg" alt="">
-                                            <div class="title-price"> 145.000</div>
+                                            
+                                            <div class="title-price"> Fiyat</div>
                                         </div>
                                         <div class="button-place-bid">
                                             <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button btn-3"><span>Teklif ver</span></a>
@@ -67,7 +67,7 @@
                                         </div>                                                                                                                                       
                                     </div>
                                 </div>  --}}
-                                
+                                    
                                 <h3 class="title-two fw-6">Ürün Bilgileri</h3> 
                                 <form action="/ihaleler/test" method="POST"  enctype="multipart/form-data">                     
                                     <div class="form-infor-profile flat-form">
@@ -87,26 +87,50 @@
                                         </div> 
                                             <div class="info-title info-account">                              
                                                 <fieldset>
-                                                    <p class="title-infor-account">Başlık</p>
+                                                    <p class="title-infor-account">Ürün Adı</p>
                                                  <input type="text" name="title" placeholder="Ürün ismini giriniz" required>
                                                 </fieldset>                                                                                                                   
                                             </div>
-                                            <div class="info-stock info-social">                                 
+                                            <div class="info-title info-account">                              
                                                 <fieldset>
-                                                    <p class="title-infor-account">Stok</p>
-                                                <!--   <div class="number-wrapper"><input type="text" name="content" <!-- placeholder="Stokta 1"  min="0" max="9" step="1" required>    </div>--> 
-                                                    <div class="number-wrapper"><input type="text" name="content"  placeholder="Stokta 1"  required>    </div>                                         
-                                                </fieldset>
+                                                    <p class="title-infor-account">Kategori</p>
+                                                 <input type="text" name="catagory" placeholder="Araç" required>
+                                                </fieldset>                                                                                                                   
+                                            </div> 
+                                               <div class="info-title info-account">                              
+                                                <fieldset>
+                                                    <p class="title-infor-account">Marka</p>
+                                                 <input type="text" name="brand" placeholder="Marka" required>
+                                                </fieldset>                                                                                                                   
+                                            </div> 
+                                                <div class="info-title info-account">                              
+                                                <fieldset>
+                                                    <p class="title-infor-account">Yıl</p>
+                                                 <input type="text" name="year" placeholder="Yıl" required>
+                                                </fieldset>                                                                                                                   
+                                            </div>
+                                            <div class="info-title info-account">                              
+                                                <fieldset>
+                                                    <p class="title-infor-account">Vites</p>
+                                                 <input type="text" name="gear" placeholder="Otomatik/Manuel/Yarı Otomatik" required>
+                                                </fieldset>                                                                                                                   
                                             </div>  
+                                               <div class="info-title info-account">                              
+                                                <fieldset>
+                                                    <p class="title-infor-account">Bitiş Tarihi</p>
+                                                 <input type="text" name="deadline" placeholder="Gün.Ay.Yıl" required>
+                                                </fieldset>                                                                                                                   
+                                            </div> 
                                         </div> 
                                         <fieldset class="message">
                                             <p class="title-infor-account">Açıklama</p>
                                             <textarea tabindex="4" rows="3" required></textarea> 
                                         <!--   <input type="text" name="title" placeholder="Ürün ismini giriniz" required>-->
-                                        </fieldset>                                                              
+                                        </fieldset>  <br>          
+                                          <button class="submit" type="submit">İhale Oluştur</button>                                                    
                                     </div>
   
-                                      <button class="submit" type="submit">İhale Oluştur</button>  
+                                    
                                     </div>
                                   
                                     
@@ -116,5 +140,356 @@
                         </div>     
                     </div>           
                 </div>
+                   
             </div>
           
+ {{!-- <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script>
+      const ihaleContractAddress = "0xb378B9C9F5a0312526556bB69aFfB82D41A62958";
+      const ihaleContractABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_katagori",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_marka",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_model",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_vites",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_yakit",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_yil",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_km",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_BaslangicBedeli",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_ihaleBitisTarihi",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_ihaleId",
+				"type": "uint256"
+			}
+		],
+		"name": "ihaleEkle",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "ihaleId",
+				"type": "uint256"
+			}
+		],
+		"name": "ihalelersiralamasi",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_bakiye",
+				"type": "uint256"
+			}
+		],
+		"name": "ParaYukle",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "ihaleId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "teklifVeren",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "teklif",
+				"type": "uint256"
+			}
+		],
+		"name": "tekliflersiralamasi",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "teklif",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_ihaleId",
+				"type": "uint256"
+			}
+		],
+		"name": "TeklifVer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_ihaleId",
+				"type": "uint256"
+			}
+		],
+		"name": "EnYuksekTeklif",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getBakiye",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_ihaleId",
+				"type": "uint256"
+			}
+		],
+		"name": "IhaleBitisTarihi",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_ihaleId",
+				"type": "uint256"
+			}
+		],
+		"name": "IhaleKazanani",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_ihaleId",
+				"type": "uint256"
+			}
+		],
+		"name": "Ihalelerigetir",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "katagori",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "marka",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "model",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "vites",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "yakit",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "yil",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "km",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "BaslangicBedeli",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ihaleBitisTarihi",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "zirve",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "zirveadresi",
+						"type": "address"
+					}
+				],
+				"internalType": "struct ihale.ihaleBilgi",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+      let ihaleContract;
+      let signer;
+      const provider = new ethers.providers.Web3Provider(web3.currentProvider);
+      provider.send("eth_requestAccounts", []).then(() => {
+      provider.listAccounts().then((accounts) => {
+        signer = provider.getSigner(accounts[0]);
+        ihaleContract = new ethers.Contract(
+          ihaleContractAddress,
+         ihaleContractABI,
+          signer
+          );
+        });
+      });
+ 
+      async function setihale() {
+        const Bakiye = document.getElementById("bakiye").value;
+        const setBakiyePromise = BakiyeContract.setBakiye(Bakiye);
+        await setBakiyePromise;
+      }
+    </script> --}}
